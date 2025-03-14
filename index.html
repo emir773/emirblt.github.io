@@ -55,6 +55,27 @@
             50% { border-color: transparent; }
         }
 
+        /* Harflerin uçması için animasyon */
+        .animated-title span {
+            display: inline-block;
+            animation: fly 2s ease-in-out forwards;
+        }
+
+        @keyframes fly {
+            0% {
+                transform: translateY(0);
+                opacity: 0;
+            }
+            50% {
+                transform: translateY(-30px);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
         /* Galeri Bölümü */
         .gallery {
             display: flex;
@@ -101,7 +122,10 @@
 <body>
 
     <!-- Animasyonlu Başlık -->
-    <h1 class="animated-title">Portfolyo Galerim</h1>
+    <h1 class="animated-title">
+        <span>P</span><span>o</span><span>r</span><span>t</span><span>f</span><span>o</span><span>l</span><span>y</span> 
+        <span>G</span><span>a</span><span>l</span><span>e</span><span>r</span><span>i</span><span>m</span>
+    </h1>
 
     <!-- Müzik Oynatıcı (Görünmez) -->
     <audio id="background-music" loop>
