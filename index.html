@@ -53,13 +53,13 @@
             margin: 10px 0;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
-            transition: transform 0.3s ease-in-out;
+            transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
         }
 
-        /* Resimlere Hover (Üzerine Gelince Efekt) */
+        /* Resimlere Hover (Üzerine Gelince Büyüme ve Gölge Efekti) */
         .gallery img:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 16px rgba(255, 255, 255, 0.5);
+            transform: scale(1.2); /* Resmi %20 büyüt */
+            box-shadow: 0 12px 24px rgba(255, 255, 255, 0.6);
         }
 
     </style>
@@ -78,7 +78,4 @@
         <img src="images/5.png" alt="Resim 5">
         <img src="images/6.png" alt="Resim 6">
         <img src="images/7.png" alt="Resim 7">
-    </div>
-
-</body>
-</html>
+   
