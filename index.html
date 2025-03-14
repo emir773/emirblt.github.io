@@ -14,6 +14,29 @@
             font-family: Arial, sans-serif;
         }
 
+        /* Animasyonlu Başlık */
+        .animated-title {
+            font-size: 40px;
+            font-weight: bold;
+            color: #333;
+            text-transform: uppercase;
+            overflow: hidden;
+            white-space: nowrap;
+            border-right: 4px solid #333;
+            width: 0;
+            margin: 50px auto;
+            animation: typing 2s steps(20, end) forwards, blink 0.7s infinite;
+        }
+
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 300px; }
+        }
+
+        @keyframes blink {
+            50% { border-color: transparent; }
+        }
+
         /* Galeri Bölümü */
         .gallery {
             display: flex;
@@ -24,17 +47,28 @@
 
         /* Resimlerin Tasarımı */
         .gallery img {
-            width: 80%;  /* Resimlerin genişliği */
-            max-width: 600px; /* Maksimum genişlik */
-            margin: 10px 0; /* Üst ve alt boşluk */
-            border-radius: 10px; /* Köşeleri yuvarlama */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Hafif gölge efekti */
+            width: 80%;
+            max-width: 600px;
+            margin: 10px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease-in-out;
         }
+
+        /* Resimlere Hover (Üzerine Gelince Efekt) */
+        .gallery img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+        }
+
     </style>
 </head>
 <body>
-    <h1>Portfolyo Galerim</h1>
-    
+
+    <!-- Animasyonlu Başlık -->
+    <h1 class="animated-title">Portfolyo Galerim</h1>
+
+    <!-- Resim Galerisi -->
     <div class="gallery">
         <img src="images/1.png" alt="Resim 1">
         <img src="images/2.png" alt="Resim 2">
@@ -44,5 +78,6 @@
         <img src="images/6.png" alt="Resim 6">
         <img src="images/7.png" alt="Resim 7">
     </div>
+
 </body>
 </html>
