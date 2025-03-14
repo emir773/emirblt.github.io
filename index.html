@@ -5,23 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolyo</title>
     <style>
-        /* Sayfanın tamamını kaplayan arka plan */
         body {
             margin: 0;
             padding: 0;
-            background: url('images/main1.jpg') no-repeat center center fixed;
-            background-size: cover;
-            height: 100vh;
+            background-color: #f4f4f4;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+
+        .gallery {
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
-            color: white;
-            font-size: 24px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            padding: 20px;
+        }
+
+        .gallery img {
+            width: 80%;  /* Resimlerin genişliği */
+            max-width: 600px; /* Maksimum genişlik */
+            margin: 10px 0; /* Üst ve alt boşluk */
+            border-radius: 10px; /* Köşeleri yuvarlama */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Hafif gölge efekti */
         }
     </style>
 </head>
 <body>
-    <h1>Merhaba, bu benim portfolyo sayfam!</h1>
+    <h1>Portfolyo Galerim</h1>
+    
+    <div class="gallery">
+        <img src="1.png" alt="Resim 1">
+        <img src="2.png" alt="Resim 2">
+        <img src="3.png" alt="Resim 3">
+        <img src="4.png" alt="Resim 4">
+        <img src="5.png" alt="Resim 5">
+        <img src="6.png" alt="Resim 6">
+        <img src="7.png" alt="Resim 7">
+    </div>
 </body>
 </html>
