@@ -104,7 +104,7 @@
     <h1 class="animated-title">Portfolyo Galerim</h1>
 
     <!-- Müzik Oynatıcı (Görünmez) -->
-    <audio id="background-music" autoplay loop>
+    <audio id="background-music" loop>
        <source src="images/musikk1.mp3" type="audio/mpeg">
         Tarayıcınız ses dosyalarını desteklemiyor.
     </audio>
@@ -124,15 +124,6 @@
     </div>
 
     <script>
-        // Sayfa açıldığında müziği otomatik oynat
-        document.addEventListener("DOMContentLoaded", function() {
-            var audio = document.getElementById("background-music");
-            audio.volume = 0.5; // Ses seviyesini %50'ye ayarla
-            audio.play().catch(error => {
-                console.log("Otomatik oynatma engellendi, buton ile başlatılabilir.");
-            });
-        });
-
         // Müzik Aç/Kapat Fonksiyonu
         function toggleMusic() {
             var audio = document.getElementById("background-music");
