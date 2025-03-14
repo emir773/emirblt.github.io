@@ -41,16 +41,16 @@
         /* Galeri Bölümü */
         .gallery {
             display: flex;
-            flex-direction: column;
-            align-items: center;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
             padding: 20px;
         }
 
         /* Resimlerin Tasarımı */
         .gallery img {
-            width: 80%;
-            max-width: 600px;
-            margin: 10px 0;
+            width: 90%;
+            max-width: 450px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
             transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
@@ -58,8 +58,25 @@
 
         /* Resimlere Hover (Üzerine Gelince Büyüme ve Gölge Efekti) */
         .gallery img:hover {
-            transform: scale(1.2); /* Resmi %20 büyüt */
+            transform: scale(1.1);
             box-shadow: 0 12px 24px rgba(255, 255, 255, 0.6);
+        }
+
+        /* Mobil Uyum (Ekran 768px’den küçükse) */
+        @media (max-width: 768px) {
+            .animated-title {
+                font-size: 28px;
+            }
+
+            .gallery {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .gallery img {
+                width: 95%;
+                max-width: 100%;
+            }
         }
 
     </style>
@@ -67,7 +84,7 @@
 <body>
 
     <!-- Animasyonlu Başlık -->
-    <h1 class="animated-title"></h1>
+    <h1 class="animated-title">Portfolyo Galerim</h1>
 
     <!-- Resim Galerisi -->
     <div class="gallery">
@@ -78,4 +95,7 @@
         <img src="images/5.png" alt="Resim 5">
         <img src="images/6.png" alt="Resim 6">
         <img src="images/7.png" alt="Resim 7">
-   
+    </div>
+
+</body>
+</html>
