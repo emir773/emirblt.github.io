@@ -55,27 +55,6 @@
             50% { border-color: transparent; }
         }
 
-        /* Harflerin uçması için animasyon */
-        .animated-title span {
-            display: inline-block;
-            animation: fly 2s ease-in-out forwards;
-        }
-
-        @keyframes fly {
-            0% {
-                transform: translateY(0);
-                opacity: 0;
-            }
-            50% {
-                transform: translateY(-30px);
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
         /* Galeri Bölümü */
         .gallery {
             display: flex;
@@ -92,12 +71,52 @@
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
             transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+            cursor: pointer;
         }
 
         /* Resimlere Hover (Üzerine Gelince Büyüme ve Gölge Efekti) */
         .gallery img:hover {
             transform: scale(1.1);
             box-shadow: 0 12px 24px rgba(255, 255, 255, 0.6);
+        }
+
+        /* Tam ekran modal stili */
+        .modal {
+            display: none; /* Başlangıçta gizli */
+            position: fixed;
+            z-index: 1; /* Sayfanın üst kısmında göster */
+            padding-top: 50px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+        }
+
+        /* Kapatma butonu */
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #ffcc00;
+            text-decoration: none;
+            cursor: pointer;
         }
 
         /* Mobil Uyum (Ekran 768px’den küçükse) */
@@ -122,10 +141,7 @@
 <body>
 
     <!-- Animasyonlu Başlık -->
-    <h1 class="animated-title">
-        <span>P</span><span>o</span><span>r</span><span>t</span><span>f</span><span>o</span><span>l</span><span>y</span> 
-        <span>G</span><span>a</span><span>l</span><span>e</span><span>r</span><span>i</span><span>m</span>
-    </h1>
+    <h1 class="animated-title">Portfolyo Galerim</h1>
 
     <!-- Müzik Oynatıcı (Görünmez) -->
     <audio id="background-music" loop>
@@ -138,13 +154,19 @@
 
     <!-- Resim Galerisi -->
     <div class="gallery">
-        <img src="images/1.png" alt="Resim 1">
-        <img src="images/2.png" alt="Resim 2">
-        <img src="images/3.png" alt="Resim 3">
-        <img src="images/4.png" alt="Resim 4">
-        <img src="images/5.png" alt="Resim 5">
-        <img src="images/6.png" alt="Resim 6">
-        <img src="images/7.png" alt="Resim 7">
+        <img src="images/1.png" alt="Resim 1" onclick="openModal(this)">
+        <img src="images/2.png" alt="Resim 2" onclick="openModal(this)">
+        <img src="images/3.png" alt="Resim 3" onclick="openModal(this)">
+        <img src="images/4.png" alt="Resim 4" onclick="openModal(this)">
+        <img src="images/5.png" alt="Resim 5" onclick="openModal(this)">
+        <img src="images/6.png" alt="Resim 6" onclick="openModal(this)">
+        <img src="images/7.png" alt="Resim 7" onclick="openModal(this)">
+    </div>
+
+    <!-- Modal (Resim Görüntüleme Alanı) -->
+    <div id="myModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="img01">
     </div>
 
     <script>
@@ -156,6 +178,20 @@
             } else {
                 audio.pause();
             }
+        }
+
+        // Modal açma fonksiyonu
+        function openModal(imgElement) {
+            var modal = document.getElementById("myModal");
+            var modalImg = document.getElementById("img01");
+            modal.style.display = "block";
+            modalImg.src = imgElement.src;
+        }
+
+        // Modal kapama fonksiyonu
+        function closeModal() {
+            var modal = document.getElementById("myModal");
+            modal.style.display = "none";
         }
     </script>
 
