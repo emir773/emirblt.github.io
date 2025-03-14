@@ -12,7 +12,24 @@
             background: linear-gradient(135deg, #1a1a1a, #2c2c2c);
             text-align: center;
             font-family: Arial, sans-serif;
-            color: #fff; /* Yazıları beyaz yap */
+            color: #fff;
+        }
+
+        /* Müzik Kontrol Butonu */
+        .music-btn {
+            background-color: #ffcc00;
+            color: #333;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 20px;
+            transition: background 0.3s ease;
+        }
+
+        .music-btn:hover {
+            background-color: #ffdb4d;
         }
 
         /* Animasyonlu Başlık */
@@ -86,6 +103,15 @@
     <!-- Animasyonlu Başlık -->
     <h1 class="animated-title">Portfolyo Galerim</h1>
 
+    <!-- Müzik Oynatıcı (Görünmez) -->
+    <audio id="background-music" autoplay loop>
+        <source src="musikk/musikk1" type="audio/mpeg">
+        Tarayıcınız ses dosyalarını desteklemiyor.
+    </audio>
+
+    <!-- Müzik Aç/Kapat Butonu -->
+    <button class="music-btn" onclick="toggleMusic()">🎵 Müziği Aç/Kapat</button>
+
     <!-- Resim Galerisi -->
     <div class="gallery">
         <img src="images/1.png" alt="Resim 1">
@@ -96,6 +122,27 @@
         <img src="images/6.png" alt="Resim 6">
         <img src="images/7.png" alt="Resim 7">
     </div>
+
+    <script>
+        // Sayfa açıldığında müziği otomatik oynat
+        document.addEventListener("DOMContentLoaded", function() {
+            var audio = document.getElementById("background-music");
+            audio.volume = 0.5; // Ses seviyesini %50'ye ayarla
+            audio.play().catch(error => {
+                console.log("Otomatik oynatma engellendi, buton ile başlatılabilir.");
+            });
+        });
+
+        // Müzik Aç/Kapat Fonksiyonu
+        function toggleMusic() {
+            var audio = document.getElementById("background-music");
+            if (audio.paused) {
+                audio.play();
+            } else {
+                audio.pause();
+            }
+        }
+    </script>
 
 </body>
 </html>
