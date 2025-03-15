@@ -7,49 +7,12 @@
     <style>
         /* Sayfa Stili */
         body {
-            width: 80vw; 
-            max-width: 1600px; 
-            margin: 0 auto; 
+            margin: 0;
+            padding: 0;
             background-color: #1a1a1a;
             color: #fff;
             font-family: Arial, sans-serif;
             overflow-x: hidden;
-        }
-
-        /* Navbar */
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 30px;
-            background-color: #111;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-        }
-
-        /* Menü Liste */
-        .nav-links {
-            list-style: none;
-            display: flex;
-            gap: 20px;
-        }
-
-        .nav-links li {
-            display: inline;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: #ccc;
-            font-size: 18px;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: #fff;
         }
 
         /* Home Bölümü */
@@ -115,63 +78,50 @@
             border-radius: inherit;
         }
 
-        /* Galeri Bölümü (Bir Sayfada Bir Resim Gösterme) */
+        /* Galeri Bölümü (Resimler tam genişlikte ve alt alta sıralı) */
         .gallery {
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 50px 20px;
+            padding: 0;
         }
 
-        .image-container img {
-            width: 90%;
-            max-width: 450px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
-            transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+        .gallery img {
+            width: 100%;
+            height: auto;
+            max-width: 100vw;
+            border-radius: 0;
+            box-shadow: none;
+            transition: transform 0.4s ease-in-out;
             cursor: pointer;
-            display: none; /* Başlangıçta tüm resimleri gizle */
         }
 
-        .image-container img.active {
-            display: block; /* Sadece aktif resim görünür olacak */
-        }
-
-        /* Geçiş Butonları */
-        .controls {
-            margin-top: 20px;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-
-        .controls button {
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-            border: none;
-            border-radius: 5px;
-            background-color: #007BFF;
-            color: white;
-            transition: background 0.3s;
-        }
-
-        .controls button:hover {
-            background-color: #0056b3;
+        .gallery img:hover {
+            transform: scale(1.02);
         }
 
     </style>
 </head>
 <body>
 
-    <!-- Navbar -->
+    <!-- Navbar (Önceki kodda olan navbar buraya gelecek) -->
+ <!-- Navbar -->
     <div class="navbar">
+        <div class="logo">ℹ</div>
         <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Tech Stack</a></li>
+            <li><a href="#">Projects</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#gallery">Galeri</a></li>  <!-- Galeriye yönlendirme -->
         </ul>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+        </div>
     </div>
-
     <!-- Home Kısmı -->
     <div id="home" class="home">
         <div class="text-content">
@@ -184,44 +134,16 @@
         </div>
     </div>
 
-    <!-- Galeri Bölümü -->
-    <div id="gallery" class="gallery">
-        <div class="image-container">
-            <img src="images/1.png" class="active" alt="Resim 1">
-            <img src="images/2.png" alt="Resim 2">
-            <img src="images/3.png" alt="Resim 3">
-            <img src="images/4.png" alt="Resim 4">
-            <img src="images/5.png" alt="Resim 5">
-            <img src="images/6.png" alt="Resim 6">
-            <img src="images/7.png" alt="Resim 7">
-        </div>
-
-        <!-- Önceki ve Sonraki Butonlar -->
-        <div class="controls">
-            <button onclick="prevImage()">Önceki</button>
-            <button onclick="nextImage()">Sonraki</button>
-        </div>
+    <!-- Galeri Bölümü (Resimler tam ekran genişliğinde alt alta sıralı) -->
+    <div class="gallery">
+        <img src="images/1.png" alt="Resim 1">
+        <img src="images/2.png" alt="Resim 2">
+        <img src="images/3.png" alt="Resim 3">
+        <img src="images/4.png" alt="Resim 4">
+        <img src="images/5.png" alt="Resim 5">
+        <img src="images/6.png" alt="Resim 6">
+        <img src="images/7.png" alt="Resim 7">
     </div>
-
-    <script>
-        let currentIndex = 0;
-        const images = document.querySelectorAll(".image-container img");
-
-        function showImage(index) {
-            images.forEach(img => img.classList.remove("active"));
-            images[index].classList.add("active");
-        }
-
-        function prevImage() {
-            currentIndex = (currentIndex - 1 + images.length) % images.length;
-            showImage(currentIndex);
-        }
-
-        function nextImage() {
-            currentIndex = (currentIndex + 1) % images.length;
-            showImage(currentIndex);
-        }
-    </script>
 
 </body>
 </html>
