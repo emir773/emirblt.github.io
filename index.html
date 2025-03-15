@@ -5,256 +5,186 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolyo</title>
     <style>
- /* Genel Sayfa Stili */
-body {
-    width: 100%; /* Sayfa genişliğini tam yap */
-    max-width: 1600px; /* Çok büyük ekranlarda bozulmayı önle */
-    margin: 0 auto;
-    background-color: #1a1a1a;
-    color: #fff;
-    font-family: Arial, sans-serif;
-    overflow-x: hidden;
-}
-
-/* Navbar Genel Stili */
-.navbar {
-    display: flex;
-    justify-content: center; /* 🔥 Navbar'ı ortalar */
-    align-items: center;
-    padding: 10px 20px; /* 🔹 Daha küçük padding */
-    background-color: #111;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-}
-
-/* Menü Liste */
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 15px; /* 🔹 Menü linkleri arasındaki boşluğu küçült */
-    padding: 0;
-    margin: 0;
-}
-
-/* Menü Linkleri */
-.nav-links li {
-    display: inline;
-}
-
-.nav-links a {
-    text-decoration: none;
-    color: #ccc;
-    font-size: 14px; /* 🔥 Yazı boyutunu küçült */
-    font-weight: 500;
-    transition: color 0.3s ease-in-out;
-    padding: 5px 10px; /* 🔹 Daha küçük buton hissi versin */
-}
-
-/* Hover Efekti */
-.nav-links a:hover {
-    color: #fff;
-}
-
-/* Mobil için Menü */
-@media (max-width: 768px) {
-    .navbar {
-        padding: 8px 15px; /* Mobilde daha küçük navbar */
-    }
-
-    .nav-links {
-        flex-direction: column;
-        align-items: center;
-        display: none; /* Varsayılan olarak gizli */
-        position: absolute;
-        top: 50px;
-        left: 50%;
-        transform: translateX(-50%);
-        background: rgba(0, 0, 0, 0.9);
-        padding: 10px 20px;
-        width: auto;
-        border-radius: 10px;
-    }
-
-    .nav-links.active {
-        display: flex;
-    }
-
-    .nav-links a {
-        font-size: 16px; /* Mobilde biraz daha büyük */
-        padding: 8px 12px;
-    }
-}
-
-    .menu-icon {
-        display: block;
-    }
-}
-
-/* Home Bölümü */
-.home {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 100vh;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-/* Başlık Stili */
-.text-content {
-    max-width: 50%;
-}
-
-.text-content h1 {
-    font-size: 50px;
-    font-weight: bold;
-}
-
-/* EMİR BULUT Yazısı */
-.name {
-    font-size: 60px;
-    font-weight: bold;
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(90deg, #007BFF, #A100FF, #FF0099);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    display: inline-block;
-    animation: glowText 2s infinite alternate ease-in-out, popEffect 1.5s infinite alternate;
-}
-
-/* Renk Efekti */
-@keyframes glowText {
-    0% { text-shadow: 0px 0px 5px rgba(0, 123, 255, 0.5); }
-    100% { text-shadow: 0px 0px 20px rgba(255, 0, 153, 0.8); }
-}
-
-/* Büyüme-Küçülme Efekti */
-@keyframes popEffect {
-    0% { transform: scale(1); }
-    100% { transform: scale(1.1); }
-}
-
-/* Profil Fotoğrafı */
-.logo-container {
-    width: 250px;
-    height: 320px;
-    background: linear-gradient(135deg, #ff0099, #007bff);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    overflow: hidden;
-    position: relative;
-}
-
-.logo-container img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: inherit;
-}
-
-/* 🔥 Galeri Bölümü */
-.gallery {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%; /* Genişliği tam ekran yap */
-    padding: 70px 0; /* Üst ve alt boşluk */
-    gap: 80px; /* 🔹 Daha fazla boşluk */
-}
-
-/* 🔥 Resimler - Daha Büyük ve Boşluklu */
-.gallery img {
-    width: 95%; /* 🔹 Ekranın %95’ini kaplasın */
-    max-height: 85vh; /* 🔹 Daha büyük görünmesi için */
-    object-fit: cover;
-    border-radius: 20px;
-    box-shadow: 0 6px 15px rgba(255, 255, 255, 0.1);
-    transition: transform 0.4s ease-in-out;
-}
-
-/* 🔥 Hover Efekti */
-.gallery img:hover {
-    transform: scale(1.05); /* 🔹 Üzerine gelince hafif büyüsün */
-}
-
-/* 📱 Mobil İçin */
-@media (max-width: 768px) {
-    .gallery img {
-        width: 95%; /* 🔹 Mobilde %95 genişlik */
-        max-height: 65vh; /* 🔹 Yüksekliği küçült */
-    }
-}
-
-
-        /* Tam ekran modal stili */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
+        /* Genel Sayfa Stili */
+        body {
             width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            text-align: center;
-        }
-
-        .modal-content {
-            margin: auto;
-            display: block;
-            max-width: 90%;
-            max-height: 90%;
-            object-fit: contain;
-            position: relative;
-            top: 50%;
-            transform: translateY(-50%);
-        }
-
-        /* Kapatma butonu */
-        .close {
-            position: absolute;
-            top: 15px;
-            right: 35px;
+            max-width: 1600px;
+            margin: 0 auto;
+            background-color: #1a1a1a;
             color: #fff;
-            font-size: 40px;
-            font-weight: bold;
-            transition: 0.3s;
-            cursor: pointer;
+            font-family: Arial, sans-serif;
+            overflow-x: hidden;
         }
 
-        .close:hover {
-            color: #808080;
+        /* Navbar Genel Stili */
+        .navbar {
+            display: flex;
+            justify-content: center; /* Navbar'ı ortala */
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #111;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
         }
 
-        /* Responsive Tasarım */
+        /* Menü Liste */
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+            padding: 0;
+            margin: 0;
+        }
+
+        /* Menü Linkleri */
+        .nav-links li {
+            display: inline;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #ccc;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.3s ease-in-out;
+            padding: 5px 10px;
+        }
+
+        /* Hover Efekti */
+        .nav-links a:hover {
+            color: #fff;
+        }
+
+        /* Mobil için Menü */
         @media (max-width: 768px) {
-            .home {
-                flex-direction: column;
-                text-align: center;
+            .navbar {
+                padding: 8px 15px;
             }
 
-            .text-content {
-                max-width: 100%;
-            }
-
-            .logo-container {
-                margin-top: 30px;
-            }
-
-            .gallery {
+            .nav-links {
                 flex-direction: column;
                 align-items: center;
+                display: none;
+                position: absolute;
+                top: 50px;
+                left: 50%;
+                transform: translateX(-50%);
+                background: rgba(0, 0, 0, 0.9);
+                padding: 10px 20px;
+                width: auto;
+                border-radius: 10px;
             }
 
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links a {
+                font-size: 16px;
+                padding: 8px 12px;
+            }
+        }
+
+        /* Home Bölümü */
+        .home {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 100vh;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Başlık Stili */
+        .text-content {
+            max-width: 50%;
+        }
+
+        .text-content h1 {
+            font-size: 50px;
+            font-weight: bold;
+        }
+
+        /* EMİR BULUT Yazısı */
+        .name {
+            font-size: 60px;
+            font-weight: bold;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(90deg, #007BFF, #A100FF, #FF0099);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+            animation: glowText 2s infinite alternate ease-in-out, popEffect 1.5s infinite alternate;
+        }
+
+        /* Renk Efekti */
+        @keyframes glowText {
+            0% { text-shadow: 0px 0px 5px rgba(0, 123, 255, 0.5); }
+            100% { text-shadow: 0px 0px 20px rgba(255, 0, 153, 0.8); }
+        }
+
+        /* Büyüme-Küçülme Efekti */
+        @keyframes popEffect {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.1); }
+        }
+
+        /* Profil Fotoğrafı */
+        .logo-container {
+            width: 250px;
+            height: 320px;
+            background: linear-gradient(135deg, #ff0099, #007bff);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .logo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: inherit;
+        }
+
+        /* 🔥 Galeri Bölümü */
+        .gallery {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            padding: 70px 0;
+            gap: 50px; /* 🔹 Resimler arası boşluk */
+        }
+
+        /* 🔥 Resimler */
+        .gallery img {
+            width: 90%; /* 🔹 Ekranın %90’ını kaplasın */
+            height: auto;
+            max-height: 75vh; /* 🔹 Aşırı büyük olmaması için */
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: 0 6px 15px rgba(255, 255, 255, 0.1);
+            transition: transform 0.4s ease-in-out;
+        }
+
+        /* 🔥 Hover Efekti */
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+
+        /* 📱 Mobil İçin */
+        @media (max-width: 768px) {
             .gallery img {
                 width: 95%;
+                max-height: 60vh;
             }
         }
 
@@ -263,103 +193,37 @@ body {
 <body>
 
     <!-- Navbar -->
- <div class="navbar">
-    <span class="menu-icon" onclick="toggleMenu()">☰</span>
-    <ul class="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#image2">About</a></li>
-        <li><a href="#image5">Projects</a></li>
-        <li><a href="#image7">Contact</a></li>
-    </ul>
-</div>
-
-<!-- Home Kısmı -->
-<div id="home" class="home">
-    <div class="text-content">
-        <h1>Hi 👋</h1>
-        <h1>My name is</h1>
-        <h1 class="name">EMİR BULUT</h1>
-    </div>
-    <div class="logo-container">
-        <img src="images/logo.jpg" alt="Profile Picture">
-    </div>
-</div>
-
-<!-- Galeri Bölümü (ID'ler Doğru Yerleştirildi) -->
-<div class="gallery">
-    <img src="images/1.png" alt="Resim 1" onclick="openModal(this)">
-    <img id="image2" src="images/2.png" alt="Resim 2" onclick="openModal(this)">
-    <img src="images/3.png" alt="Resim 3" onclick="openModal(this)">
-    <img src="images/4.png" alt="Resim 4" onclick="openModal(this)">
-    <img id="image5" src="images/5.png" alt="Resim 5" onclick="openModal(this)">
-    <img src="images/6.png" alt="Resim 6" onclick="openModal(this)">
-    <img id="image7" src="images/7.png" alt="Resim 7" onclick="openModal(this)">
-</div>
-    <!-- Modal (Resim Görüntüleme Alanı) -->
-    <div id="myModal" class="modal">
-        <span class="close" onclick="closeModal()">&times;</span>
-        <img class="modal-content" id="img01">
+    <div class="navbar">
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#image2">About</a></li>
+            <li><a href="#image5">Projects</a></li>
+            <li><a href="#image7">Contact</a></li>
+        </ul>
     </div>
 
-    <script>
-        // Modal açma fonksiyonu
-        function openModal(imgElement) {
-            var modal = document.getElementById("myModal");
-            var modalImg = document.getElementById("img01");
-            modal.style.display = "block";
-            modalImg.src = imgElement.src;
-        }
+    <!-- Home Kısmı -->
+    <div id="home" class="home">
+        <div class="text-content">
+            <h1>Hi 👋</h1>
+            <h1>My name is</h1>
+            <h1 class="name">EMİR BULUT</h1>
+        </div>
+        <div class="logo-container">
+            <img src="images/logo.jpg" alt="Profile Picture">
+        </div>
+    </div>
 
-        // Modal kapama fonksiyonu
-        function closeModal() {
-            var modal = document.getElementById("myModal");
-            modal.style.display = "none";
-        }
-        // Modal açma fonksiyonu
-    function openModal(imgElement) {
-        var modal = document.getElementById("myModal");
-        var modalImg = document.getElementById("img01");
-        modal.style.display = "block";
-        modalImg.src = imgElement.src;
-    }
-
-    // Modal kapama fonksiyonu
-    function closeModal() {
-        var modal = document.getElementById("myModal");
-        modal.style.display = "none";
-    }
-
-    // Modal dışına tıklayınca kapama fonksiyonu
-    window.onclick = function(event) {
-        var modal = document.getElementById("myModal");
-        if (event.target === modal) {
-            modal.style.display = "none";
-        }
-    };
-        // Mobil Menü Aç/Kapat
-function toggleMenu() {
-    var navLinks = document.querySelector('.nav-links');
-    navLinks.classList.toggle('active');
-}
-
-// Navbar Tıklanınca Yumuşak Kaydırma
-document.querySelectorAll('.nav-links a').forEach(anchor => {
-    anchor.addEventListener('click', function(event) {
-        event.preventDefault();
-        const targetId = this.getAttribute('href').substring(1);
-        const targetElement = document.getElementById(targetId);
-        if (targetElement) {
-            window.scrollTo({
-                top: targetElement.offsetTop - 50,
-                behavior: 'smooth'
-            });
-        }
-        // Mobil Menü Açıkken Linke Tıklayınca Kapat
-        document.querySelector('.nav-links').classList.remove('active');
-    });
-});
-
-    </script>
+    <!-- Galeri Bölümü -->
+    <div class="gallery">
+        <img src="images/1.png" alt="Resim 1">
+        <img id="image2" src="images/2.png" alt="Resim 2">
+        <img src="images/3.png" alt="Resim 3">
+        <img src="images/4.png" alt="Resim 4">
+        <img id="image5" src="images/5.png" alt="Resim 5">
+        <img src="images/6.png" alt="Resim 6">
+        <img id="image7" src="images/7.png" alt="Resim 7">
+    </div>
 
 </body>
 </html>
