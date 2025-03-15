@@ -12,7 +12,7 @@
             background-color: #1a1a1a;
             color: #fff;
             font-family: Arial, sans-serif;
-            overflow: hidden;
+            overflow-x: hidden; /* Yalnızca yatay kaydırmayı engelle */
         }
 
         /* Ana Konteyner */
@@ -20,7 +20,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            height: 100vh;
+            min-height: 100vh; /* Sayfanın tamamını kaplamasını sağlar, aşağı kayma imkanı sunar */
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
@@ -41,19 +41,6 @@
             z-index: 10;
         }
 
-        .wave {
-            display: inline-block;
-            animation: wave-animation 1s infinite;
-        }
-
-        @keyframes wave-animation {
-            0% { transform: rotate(0deg); }
-            25% { transform: rotate(15deg); }
-            50% { transform: rotate(0deg); }
-            75% { transform: rotate(-15deg); }
-            100% { transform: rotate(0deg); }
-        }
-
         /* Siyah Animasyonlu İsim */
         .name-container {
             position: relative;
@@ -69,36 +56,7 @@
             text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
         }
 
-        /* Patlama Efekti */
-        .name-explosion {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) scale(1);
-            font-size: 60px;
-            font-weight: bold;
-            color: rgba(255, 255, 255, 0.1);
-            text-shadow: 0px 0px 20px rgba(255, 255, 255, 0.5);
-            opacity: 0;
-            animation: explode 2s infinite ease-in-out;
-        }
-
-        @keyframes explode {
-            0% {
-                transform: translate(-50%, -50%) scale(1);
-                opacity: 0.3;
-            }
-            50% {
-                transform: translate(-50%, -50%) scale(1.4);
-                opacity: 0.7;
-            }
-            100% {
-                transform: translate(-50%, -50%) scale(2);
-                opacity: 0;
-            }
-        }
-
-        /* Sağ Taraf: Logo / Profil Fotoğrafı Alanı */
+        /* Sağ Taraf: Profil Fotoğrafı Alanı */
         .logo-container {
             width: 250px;
             height: 320px;
@@ -106,7 +64,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 50% 50% 40% 60% / 50% 40% 60% 50%;
+            border-radius: 50%;
             overflow: hidden;
             position: relative;
         }
@@ -116,54 +74,6 @@
             height: 100%;
             object-fit: cover;
             border-radius: inherit;
-        }
-
-        /* Responsive Tasarım */
-        @media (max-width: 768px) {
-            .container {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .text-content {
-                max-width: 100%;
-            }
-
-            .logo-container {
-                margin-top: 30px;
-            }
-        }
-
-    </style>
-</head>
-<body>
-
-    <div class="container">
-        <!-- Sol Kısım: Metin Alanı -->
-        <div class="text-content">
-            <h1>Hi <span class="wave">👋</span></h1>
-            <h1>My name is</h1>
-            <div class="name-container">
-                <h1 class="name">EMİR BULUT</h1>
-                <h1 class="name-explosion">EMİR BULUT</h1>
-            </div>
-        </div>
-
-        <!-- Sağ Kısım: Profil Fotoğrafı Alanı -->
-        <div class="logo-container">
-            <img src="images/logo.jpg" alt="Profile Picture">
-        </div>
-    </div>
-
-<style/>
-        /* Sayfanın Koyu Arka Planı */
-        body {
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(135deg, #1a1a1a, #2c2c2c);
-            text-align: center;
-            font-family: Arial, sans-serif;
-            color: #fff;
         }
 
         /* Navigasyon Çubuğu */
@@ -202,51 +112,6 @@
             color: #fff;
         }
 
-        /* İçeriğin Navbar'ın Altında Başlaması İçin Boşluk */
-        .content {
-            padding-top: 60px;
-        }
-
-        /* Müzik Kontrol Butonu */
-        .music-btn {
-            background-color: #808080; /* Gri renk */
-            color: #333;
-            border: none;
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-            border-radius: 5px;
-            margin-top: 20px;
-            transition: background 0.3s ease;
-        }
-
-        .music-btn:hover {
-            background-color: #b0b0b0; /* Daha açık gri */
-        }
-
-        /* Animasyonlu Başlık */
-        .animated-title {
-            font-size: 40px;
-            font-weight: bold;
-            color: #808080;
-            text-transform: uppercase;
-            overflow: hidden;
-            white-space: nowrap;
-            border-right: 4px solid #808080;
-            width: 0;
-            margin: 50px auto;
-            animation: typing 2s steps(20, end) forwards, blink 0.7s infinite;
-        }
-
-        @keyframes typing {
-            from { width: 0; }
-            to { width: 300px; }
-        }
-
-        @keyframes blink {
-            50% { border-color: transparent; }
-        }
-
         /* Galeri Bölümü */
         .gallery {
             display: flex;
@@ -266,63 +131,24 @@
             cursor: pointer;
         }
 
-        /* Resimlere Hover (Üzerine Gelince Büyüme ve Gölge Efekti) */
         .gallery img:hover {
             transform: scale(1.1);
             box-shadow: 0 12px 24px rgba(255, 255, 255, 0.6);
         }
 
-        /* Tam ekran modal stili */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1;
-            padding-top: 50px;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0, 0, 0, 0.8);
-        }
-
-        .modal-content {
-            margin: auto;
-            display: block;
-            width: 80%;
-            height: 80%;
-            object-fit: contain;
-        }
-
-        /* Kapatma butonu */
-        .close {
-            position: absolute;
-            top: 15px;
-            right: 35px;
-            color: #fff;
-            font-size: 40px;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-
-        .close:hover {
-            color: #808080;
-            cursor: pointer;
-        }
-
-        /* Mobil Uyum */
+        /* Responsive Tasarım */
         @media (max-width: 768px) {
-            .animated-title {
-                font-size: 28px;
-            }
-
-            .gallery {
+            .container {
                 flex-direction: column;
-                align-items: center;
+                text-align: center;
             }
 
-            .gallery img {
-                width: 95%;
+            .text-content {
+                max-width: 100%;
+            }
+
+            .logo-container {
+                margin-top: 30px;
             }
         }
 
@@ -340,63 +166,32 @@
         </ul>
     </div>
 
-    <!-- İçerik Alanı -->
-    <div class="content">
-        <!-- Animasyonlu Başlık -->
-        <h1 class="animated-title">Portfolyo Galerim</h1>
+    <div class="container">
+        <!-- Sol Kısım: Metin Alanı -->
+        <div class="text-content">
+            <h1>Hi 👋</h1>
+            <h1>My name is</h1>
+            <div class="name-container">
+                <h1 class="name">EMİR BULUT</h1>
+            </div>
+        </div>
 
-        <!-- Müzik Oynatıcı (Görünmez) -->
-        <audio id="background-music" loop>
-            <source src="images/musikk1.mp3" type="audio/mpeg">
-            Tarayıcınız ses dosyalarını desteklemiyor.
-        </audio>
-
-        <!-- Müzik Aç/Kapat Butonu -->
-        <button class="music-btn" onclick="toggleMusic()">🎵 Müziği Aç/Kapat</button>
-
-        <!-- Resim Galerisi -->
-        <div class="gallery">
-            <img src="images/1.png" alt="Resim 1" onclick="openModal(this)">
-            <img src="images/2.png" alt="Resim 2" onclick="openModal(this)">
-            <img src="images/3.png" alt="Resim 3" onclick="openModal(this)">
-            <img src="images/4.png" alt="Resim 4" onclick="openModal(this)">
-            <img src="images/5.png" alt="Resim 5" onclick="openModal(this)">
-            <img src="images/6.png" alt="Resim 6" onclick="openModal(this)">
-            <img src="images/7.png" alt="Resim 7" onclick="openModal(this)">
+        <!-- Sağ Kısım: Profil Fotoğrafı Alanı -->
+        <div class="logo-container">
+            <img src="images/logo.jpg" alt="Profile Picture">
         </div>
     </div>
 
-    <!-- Modal (Resim Görüntüleme Alanı) -->
-    <div id="myModal" class="modal" onclick="closeModal()">
-        <span class="close">&times;</span>
-        <img class="modal-content" id="img01">
+    <!-- Galeri Bölümü -->
+    <div class="gallery">
+        <img src="images/1.png" alt="Resim 1">
+        <img src="images/2.png" alt="Resim 2">
+        <img src="images/3.png" alt="Resim 3">
+        <img src="images/4.png" alt="Resim 4">
+        <img src="images/5.png" alt="Resim 5">
+        <img src="images/6.png" alt="Resim 6">
+        <img src="images/7.png" alt="Resim 7">
     </div>
-
-    <script>
-        // Müzik Aç/Kapat Fonksiyonu
-        function toggleMusic() {
-            var audio = document.getElementById("background-music");
-            if (audio.paused) {
-                audio.play();
-            } else {
-                audio.pause();
-            }
-        }
-
-        // Modal açma fonksiyonu
-        function openModal(imgElement) {
-            var modal = document.getElementById("myModal");
-            var modalImg = document.getElementById("img01");
-            modal.style.display = "block";
-            modalImg.src = imgElement.src;
-        }
-
-        // Modal kapama fonksiyonu
-        function closeModal() {
-            var modal = document.getElementById("myModal");
-            modal.style.display = "none";
-        }
-    </script>
 
 </body>
 </html>
