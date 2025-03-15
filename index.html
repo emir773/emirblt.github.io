@@ -5,18 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolyo</title>
     <style>
-  body {
-    width: 80vw; /* Sayfanın içeriğini daraltarak büyütme etkisi yaratır */
-    max-width: 1600px; /* Çok büyük ekranlarda içerik bozulmasın diye */
-    margin: 0 auto; /* Ortalamak için */
+ /* Genel Sayfa Stili */
+body {
+    width: 100%; /* Sayfa genişliğini tam yap */
+    max-width: 1600px; /* Çok büyük ekranlarda bozulmayı önle */
+    margin: 0 auto;
     background-color: #1a1a1a;
     color: #fff;
     font-family: Arial, sans-serif;
     overflow-x: hidden;
 }
 
-
-    .navbar {
+/* Navbar Sabit Kalacak */
+.navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -29,14 +30,13 @@
     z-index: 1000;
 }
 
-/* Menü Liste */
+/* Navbar Menü */
 .nav-links {
     list-style: none;
     display: flex;
     gap: 20px;
 }
 
-/* Menü Linkleri */
 .nav-links li {
     display: inline;
 }
@@ -51,25 +51,8 @@
 .nav-links a:hover {
     color: #fff;
 }
-        /* Mobil İçin Gizlenmiş Menü */
-.menu-icon {
-    display: none;
-    font-size: 30px;
-    color: #fff;
-    cursor: pointer;
-}
 
-/* Resimleri Mobil İçin Optimize Et */
-.gallery img {
-    width: 100%;
-    max-width: 450px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
-    transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
-    cursor: pointer;
-}
-
-/* Navbar Mobil Görünümü */
+/* Mobil İçin Navbar */
 @media (max-width: 768px) {
     .nav-links {
         display: none;
@@ -86,52 +69,31 @@
         display: flex;
     }
 
-    .nav-links li {
-        padding: 15px;
-    }
-
     .menu-icon {
         display: block;
     }
-
-    /* Mobilde Fontları Küçültme */
-    .text-content h1 {
-        font-size: 30px;
-    }
-
-    .name {
-        font-size: 40px;
-    }
-
-    /* Mobilde Resimlerin Daha İyi Görünmesi */
-    .gallery {
-        flex-direction: column;
-        align-items: center;
-    }
 }
-        /* Home Bölümü */
-        .home {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            height: 100vh;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
 
-        /* Sol Kısım: Metin Alanı */
-        .text-content {
-            max-width: 50%;
-        }
+/* Home Bölümü */
+.home {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100vh;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
 
-        .text-content h1 {
-            font-size: 50px;
-            font-weight: bold;
-        }
+/* Başlık Stili */
+.text-content {
+    max-width: 50%;
+}
 
-       /* Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+.text-content h1 {
+    font-size: 50px;
+    font-weight: bold;
+}
 
 /* EMİR BULUT Yazısı */
 .name {
@@ -145,72 +107,71 @@
     animation: glowText 2s infinite alternate ease-in-out, popEffect 1.5s infinite alternate;
 }
 
-/* Renk Parlaması */
+/* Renk Efekti */
 @keyframes glowText {
     0% { text-shadow: 0px 0px 5px rgba(0, 123, 255, 0.5); }
     100% { text-shadow: 0px 0px 20px rgba(255, 0, 153, 0.8); }
 }
 
-/* Büyüme ve Küçülme Efekti */
+/* Büyüme-Küçülme Efekti */
 @keyframes popEffect {
     0% { transform: scale(1); }
     100% { transform: scale(1.1); }
 }
 
-        /* Sağ Kısım: Profil Fotoğrafı */
-        .logo-container {
-            width: 250px;
-            height: 320px;
-            background: linear-gradient(135deg, #ff0099, #007bff);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            overflow: hidden;
-            position: relative;
-        }
+/* Profil Fotoğrafı */
+.logo-container {
+    width: 250px;
+    height: 320px;
+    background: linear-gradient(135deg, #ff0099, #007bff);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+}
 
-        .logo-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: inherit;
-        }
+.logo-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: inherit;
+}
 
-/* Galeri Bölümü */
+/* 🔥 Galeri Bölümü */
 .gallery {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center; /* Resimleri ortala */
-    width: 100vw; /* Tam ekran genişliği */
-    padding: 50px 0; /* Üst ve alt boşluk */
-    gap: 50px; /* Resimler arasında daha fazla boşluk bırak */
+    justify-content: center;
+    width: 100%; /* Genişliği tam ekran yap */
+    padding: 70px 0; /* Üst ve alt boşluk */
+    gap: 80px; /* 🔹 Daha fazla boşluk */
 }
 
-/* Resimlerin boyutlarını büyüt ama tam ekran olmasın */
+/* 🔥 Resimler - Daha Büyük ve Boşluklu */
 .gallery img {
-    width: 90%; /* Resimler ekranın %90’ını kaplasın */
-    max-height: 80vh; /* Daha büyük görünsün */
-    object-fit: cover; /* Resimlerin düzgün oturmasını sağla */
-    border-radius: 20px; /* Köşeleri daha yumuşak yap */
-    box-shadow: 0 6px 15px rgba(255, 255, 255, 0.1); /* Hafif gölge efekti */
+    width: 95%; /* 🔹 Ekranın %95’ini kaplasın */
+    max-height: 85vh; /* 🔹 Daha büyük görünmesi için */
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 6px 15px rgba(255, 255, 255, 0.1);
     transition: transform 0.4s ease-in-out;
 }
 
-/* Hover efekti */
+/* 🔥 Hover Efekti */
 .gallery img:hover {
-    transform: scale(1.03); /* Üzerine gelince biraz daha büyüsün */
+    transform: scale(1.05); /* 🔹 Üzerine gelince hafif büyüsün */
 }
 
-/* Mobil için */
+/* 📱 Mobil İçin */
 @media (max-width: 768px) {
     .gallery img {
-        width: 95%; /* Mobilde %95 genişlik */
-        max-height: 60vh; /* Yüksekliği küçült */
+        width: 95%; /* 🔹 Mobilde %95 genişlik */
+        max-height: 65vh; /* 🔹 Yüksekliği küçült */
     }
 }
-
 
 
         /* Tam ekran modal stili */
