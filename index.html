@@ -177,35 +177,40 @@
             border-radius: inherit;
         }
 
-     /* Galeri Bölümü */
+/* Galeri Bölümü */
 .gallery {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 50px 0;
-    gap: 30px; /* Resimler arasında boşluk bırak */
+    justify-content: center; /* Resimleri ortala */
+    width: 100vw; /* Tam ekran genişliği */
+    padding: 50px 0; /* Üst ve alt boşluk */
+    gap: 40px; /* Resimler arasında boşluk bırak */
 }
 
-/* Resimleri büyütme ve tam ekranın %80'ini kaplamasını sağlama */
+/* Resimlerin boyutlarını büyüt ama tam ekran olmasın */
 .gallery img {
-    width: 80%; /* Resimler sayfanın %80'ini kaplayacak */
-    max-height: 85vh; /* Çok uzun olmasın diye */
-    object-fit: cover;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+    width: 80%; /* Resimler ekranın %80'ini kaplasın */
+    max-height: 70vh; /* Yükseklik %70 olacak, tam ekranı kaplamayacak */
+    object-fit: cover; /* Resimlerin düzgün oturmasını sağla */
+    border-radius: 15px; /* Köşeleri hafif yuvarlak yap */
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1); /* Hafif gölge efekti */
     transition: transform 0.4s ease-in-out;
 }
 
+/* Hover efekti */
 .gallery img:hover {
-    transform: scale(1.02);
+    transform: scale(1.02); /* Üzerine gelince hafif büyüsün */
 }
 
 /* Mobil için */
 @media (max-width: 768px) {
     .gallery img {
-        width: 95%; /* Mobilde daha geniş görünsün */
+        width: 90%; /* Mobilde %90 genişlik */
+        max-height: 50vh; /* Yüksekliği küçült */
     }
 }
+
 
         /* Tam ekran modal stili */
         .modal {
