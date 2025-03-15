@@ -177,28 +177,35 @@
             border-radius: inherit;
         }
 
-        /* Galeri Bölümü */
-        .gallery {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
-            padding: 50px 20px;
-        }
+     /* Galeri Bölümü */
+.gallery {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 0;
+    gap: 30px; /* Resimler arasında boşluk bırak */
+}
 
-        .gallery img {
-            width: 90%;
-            max-width: 450px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
-            transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
-            cursor: pointer;
-        }
+/* Resimleri büyütme ve tam ekranın %80'ini kaplamasını sağlama */
+.gallery img {
+    width: 80%; /* Resimler sayfanın %80'ini kaplayacak */
+    max-height: 85vh; /* Çok uzun olmasın diye */
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+    transition: transform 0.4s ease-in-out;
+}
 
-        .gallery img:hover {
-            transform: scale(1.1);
-            box-shadow: 0 12px 24px rgba(255, 255, 255, 0.6);
-        }
+.gallery img:hover {
+    transform: scale(1.02);
+}
+
+/* Mobil için */
+@media (max-width: 768px) {
+    .gallery img {
+        width: 95%; /* Mobilde daha geniş görünsün */
+    }
+}
 
         /* Tam ekran modal stili */
         .modal {
