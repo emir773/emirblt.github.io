@@ -16,12 +16,12 @@ body {
     overflow-x: hidden;
 }
 
-/* Navbar Sabit Kalacak */
+/* Navbar Genel Stili */
 .navbar {
     display: flex;
-    justify-content: space-between;
+    justify-content: center; /* 🔥 Navbar'ı ortalar */
     align-items: center;
-    padding: 15px 30px;
+    padding: 10px 20px; /* 🔹 Daha küçük padding */
     background-color: #111;
     position: fixed;
     top: 0;
@@ -30,13 +30,16 @@ body {
     z-index: 1000;
 }
 
-/* Navbar Menü */
+/* Menü Liste */
 .nav-links {
     list-style: none;
     display: flex;
-    gap: 20px;
+    gap: 15px; /* 🔹 Menü linkleri arasındaki boşluğu küçült */
+    padding: 0;
+    margin: 0;
 }
 
+/* Menü Linkleri */
 .nav-links li {
     display: inline;
 }
@@ -44,30 +47,46 @@ body {
 .nav-links a {
     text-decoration: none;
     color: #ccc;
-    font-size: 18px;
-    transition: color 0.3s;
+    font-size: 14px; /* 🔥 Yazı boyutunu küçült */
+    font-weight: 500;
+    transition: color 0.3s ease-in-out;
+    padding: 5px 10px; /* 🔹 Daha küçük buton hissi versin */
 }
 
+/* Hover Efekti */
 .nav-links a:hover {
     color: #fff;
 }
 
-/* Mobil İçin Navbar */
+/* Mobil için Menü */
 @media (max-width: 768px) {
+    .navbar {
+        padding: 8px 15px; /* Mobilde daha küçük navbar */
+    }
+
     .nav-links {
-        display: none;
         flex-direction: column;
+        align-items: center;
+        display: none; /* Varsayılan olarak gizli */
         position: absolute;
-        top: 60px;
-        left: 0;
-        width: 100%;
-        background-color: #111;
-        text-align: center;
+        top: 50px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(0, 0, 0, 0.9);
+        padding: 10px 20px;
+        width: auto;
+        border-radius: 10px;
     }
 
     .nav-links.active {
         display: flex;
     }
+
+    .nav-links a {
+        font-size: 16px; /* Mobilde biraz daha büyük */
+        padding: 8px 12px;
+    }
+}
 
     .menu-icon {
         display: block;
