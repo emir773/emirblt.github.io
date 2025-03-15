@@ -213,37 +213,36 @@
 
     <!-- Navbar -->
     <div class="navbar">
-        <ul class="nav-links">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Projects</a></li>
-            <li><a href="#">Contact</a></li>
-        </ul>
+       <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#image2">About</a></li>
+    <li><a href="#image5">Projects</a></li>
+    <li><a href="#image7">Contact</a></li>
+</ul>
     </div>
 
-    <!-- Home Kısmı -->
-    <div class="home">
-        <div class="text-content">
-            <h1>Hi 👋</h1>
-            <h1>My name is</h1>
-            <h1 class="name">EMİR BULUT</h1>
-        </div>
-
-        <div class="logo-container">
-            <img src="images/logo.jpg" alt="Profile Picture">
-        </div>
+<!-- Home Kısmı -->
+<div id="home" class="home">
+    <div class="text-content">
+        <h1>Hi 👋</h1>
+        <h1>My name is</h1>
+        <h1 class="name">EMİR BULUT</h1>
     </div>
-
-    <!-- Galeri Bölümü -->
-    <div class="gallery">
-        <img src="images/1.png" alt="Resim 1" onclick="openModal(this)">
-        <img src="images/2.png" alt="Resim 2" onclick="openModal(this)">
-        <img src="images/3.png" alt="Resim 3" onclick="openModal(this)">
-        <img src="images/4.png" alt="Resim 4" onclick="openModal(this)">
-        <img src="images/5.png" alt="Resim 5" onclick="openModal(this)">
-        <img src="images/6.png" alt="Resim 6" onclick="openModal(this)">
-        <img src="images/7.png" alt="Resim 7" onclick="openModal(this)">
+    <div class="logo-container">
+        <img src="images/logo.jpg" alt="Profile Picture">
     </div>
+</div>
+
+<!-- Galeri Bölümü (ID'ler Doğru Yerleştirildi) -->
+<div class="gallery">
+    <img src="images/1.png" alt="Resim 1" onclick="openModal(this)">
+    <img id="image2" src="images/2.png" alt="Resim 2" onclick="openModal(this)">
+    <img src="images/3.png" alt="Resim 3" onclick="openModal(this)">
+    <img src="images/4.png" alt="Resim 4" onclick="openModal(this)">
+    <img id="image5" src="images/5.png" alt="Resim 5" onclick="openModal(this)">
+    <img src="images/6.png" alt="Resim 6" onclick="openModal(this)">
+    <img id="image7" src="images/7.png" alt="Resim 7" onclick="openModal(this)">
+</div>
 
     <!-- Modal (Resim Görüntüleme Alanı) -->
     <div id="myModal" class="modal">
