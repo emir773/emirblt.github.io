@@ -185,31 +185,32 @@
     justify-content: center; /* Resimleri ortala */
     width: 100vw; /* Tam ekran genişliği */
     padding: 50px 0; /* Üst ve alt boşluk */
-    gap: 40px; /* Resimler arasında boşluk bırak */
+    gap: 50px; /* Resimler arasında daha fazla boşluk bırak */
 }
 
 /* Resimlerin boyutlarını büyüt ama tam ekran olmasın */
 .gallery img {
-    width: 80%; /* Resimler ekranın %80'ini kaplasın */
-    max-height: 70vh; /* Yükseklik %70 olacak, tam ekranı kaplamayacak */
+    width: 90%; /* Resimler ekranın %90’ını kaplasın */
+    max-height: 80vh; /* Daha büyük görünsün */
     object-fit: cover; /* Resimlerin düzgün oturmasını sağla */
-    border-radius: 15px; /* Köşeleri hafif yuvarlak yap */
-    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1); /* Hafif gölge efekti */
+    border-radius: 20px; /* Köşeleri daha yumuşak yap */
+    box-shadow: 0 6px 15px rgba(255, 255, 255, 0.1); /* Hafif gölge efekti */
     transition: transform 0.4s ease-in-out;
 }
 
 /* Hover efekti */
 .gallery img:hover {
-    transform: scale(1.02); /* Üzerine gelince hafif büyüsün */
+    transform: scale(1.03); /* Üzerine gelince biraz daha büyüsün */
 }
 
 /* Mobil için */
 @media (max-width: 768px) {
     .gallery img {
-        width: 90%; /* Mobilde %90 genişlik */
-        max-height: 50vh; /* Yüksekliği küçült */
+        width: 95%; /* Mobilde %95 genişlik */
+        max-height: 60vh; /* Yüksekliği küçült */
     }
 }
+
 
 
         /* Tam ekran modal stili */
