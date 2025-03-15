@@ -269,14 +269,15 @@
 <body>
 
     <!-- Navbar -->
-    <div class="navbar">
-       <ul class="nav-links">
-    <li><a href="#home">Home</a></li>
-    <li><a href="#image2">About</a></li>
-    <li><a href="#image5">Projects</a></li>
-    <li><a href="#image7">Contact</a></li>
-</ul>
-    </div>
+ <div class="navbar">
+    <span class="menu-icon" onclick="toggleMenu()">☰</span>
+    <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#image2">About</a></li>
+        <li><a href="#image5">Projects</a></li>
+        <li><a href="#image7">Contact</a></li>
+    </ul>
+</div>
 
 <!-- Home Kısmı -->
 <div id="home" class="home">
@@ -300,7 +301,6 @@
     <img src="images/6.png" alt="Resim 6" onclick="openModal(this)">
     <img id="image7" src="images/7.png" alt="Resim 7" onclick="openModal(this)">
 </div>
-
     <!-- Modal (Resim Görüntüleme Alanı) -->
     <div id="myModal" class="modal">
         <span class="close" onclick="closeModal()">&times;</span>
@@ -342,6 +342,29 @@
             modal.style.display = "none";
         }
     };
+        // Mobil Menü Aç/Kapat
+function toggleMenu() {
+    var navLinks = document.querySelector('.nav-links');
+    navLinks.classList.toggle('active');
+}
+
+// Navbar Tıklanınca Yumuşak Kaydırma
+document.querySelectorAll('.nav-links a').forEach(anchor => {
+    anchor.addEventListener('click', function(event) {
+        event.preventDefault();
+        const targetId = this.getAttribute('href').substring(1);
+        const targetElement = document.getElementById(targetId);
+        if (targetElement) {
+            window.scrollTo({
+                top: targetElement.offsetTop - 50,
+                behavior: 'smooth'
+            });
+        }
+        // Mobil Menü Açıkken Linke Tıklayınca Kapat
+        document.querySelector('.nav-links').classList.remove('active');
+    });
+});
+
     </script>
 
 </body>
