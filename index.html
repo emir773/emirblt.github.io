@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-     <meta charset="UTF-8">
+  <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home - Emir Bulut</title>
     <style>
@@ -56,22 +56,24 @@
             font-weight: bold;
         }
 
-        /* Sağ Taraf: Logo Alanı */
+        /* Sağ Taraf: Logo / Profil Fotoğrafı Alanı */
         .logo-container {
+            width: 250px;
+            height: 320px;
+            background: linear-gradient(135deg, #ff0099, #007bff);
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 250px;
-            height: 250px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #ff0099, #007bff);
+            border-radius: 50% 50% 40% 60% / 50% 40% 60% 50%; /* Yuvarlak ama ovalimsi şekil */
+            overflow: hidden;
             position: relative;
         }
 
         .logo-container img {
-            width: 80%;
-            height: auto;
-            border-radius: 50%;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Fotoğrafı tam çerçeveye oturtur */
+            border-radius: inherit;
         }
 
         /* Responsive Tasarım */
@@ -102,13 +104,11 @@
             <h1 class="name">EMİR BULUT</h1>
         </div>
 
-        <!-- Sağ Kısım: Logo Alanı -->
+        <!-- Sağ Kısım: Profil Fotoğrafı Alanı -->
         <div class="logo-container">
-            <img src="images/logo.jpg" alt="Logo">
+            <img src="images/logo.jpg" alt="Profile Picture">
         </div>
     </div>
-
-    <style>
         /* Sayfanın Koyu Arka Planı */
         body {
             margin: 0;
