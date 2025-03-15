@@ -72,12 +72,32 @@
             font-weight: bold;
         }
 
-        .name {
-            font-size: 50px;
-            font-weight: bold;
-            color: black;
-            text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
-        }
+       /* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+
+/* EMİR BULUT Yazısı */
+.name {
+    font-size: 60px;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(90deg, #007BFF, #A100FF, #FF0099);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+    animation: glowText 2s infinite alternate ease-in-out, popEffect 1.5s infinite alternate;
+}
+
+/* Renk Parlaması */
+@keyframes glowText {
+    0% { text-shadow: 0px 0px 5px rgba(0, 123, 255, 0.5); }
+    100% { text-shadow: 0px 0px 20px rgba(255, 0, 153, 0.8); }
+}
+
+/* Büyüme ve Küçülme Efekti */
+@keyframes popEffect {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.1); }
+}
 
         /* Sağ Kısım: Profil Fotoğrafı */
         .logo-container {
