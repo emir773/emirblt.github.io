@@ -56,7 +56,50 @@
         @keyframes popEffect {
             0% { transform: scale(1); }
             100% { transform: scale(1.1); }
-        }
+        }.contact-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.05); /* Hafif transparan kutu efekti */
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1); /* Hafif gölge */
+    text-align: left;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    border-radius: 12px;
+}
+
+.contact-item img {
+    width: 50px;  /* Önceki haline göre biraz daha küçük */
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 10px;
+}
+
+.contact-text {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.contact-link {
+    color: #00d4ff;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+.contact-link:hover {
+    color: #00ffcc;
+}
 
         /* Sağ Kısım: Profil Fotoğrafı */
         .logo-container {
@@ -133,7 +176,22 @@
             <img src="images/logo.jpg" alt="Profile Picture">
         </div>
     </div>
+<div class="contact-container">
+    <div class="contact-item">
+        <img src="images/email-icon.png" alt="Email">
+        <div>
+            <p class="contact-text">E-POSTA</p>
+            <a href="mailto:emircanbulut04@gmail.com" class="contact-link">emircanbulut04@gmail.com</a>
+        </div>
+    </div>
 
+    <div class="contact-item">
+        <img src="images/twitter-icon.png" alt="Twitter">
+        <div>
+            <p class="contact-text">X</p>
+            <a href="https://twitter.com/emircanbulut" class="contact-link">@emircanbulut</a>
+        </div>
+    </div>
     <!-- Galeri Bölümü (Resimler tam ekran genişliğinde alt alta sıralı) -->
     <div class="gallery">
         <img src="images/1.png" alt="Resim 1">
