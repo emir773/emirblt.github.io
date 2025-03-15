@@ -58,21 +58,37 @@
             color: #fff;
         }
 /* Mobil için Navbar */
-        .menu-icon {
-            display: none;
-            font-size: 24px;
-            color: #fff;
-            cursor: pointer;
-            margin-right: 10px;
-        }
+       /* 🔥 Mobil için Navbar */
+.menu-icon {
+    display: block;
+    font-size: 24px;
+    color: #fff;
+    cursor: pointer;
+    position: absolute;
+    left: 20px;
+    top: 10px;
+}
 
-        @media (max-width: 768px) {
-            .menu-icon {
-                display: block;
-                position: absolute;
-                left: 20px;
-                top: 10px;
-            }
+@media (max-width: 768px) {
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+        display: none; /* Varsayılan olarak gizli */
+        position: absolute;
+        top: 50px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(0, 0, 0, 0.9);
+        padding: 10px 20px;
+        width: auto;
+        border-radius: 10px;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+}
+
             .nav-links {
                 flex-direction: column;
                 align-items: center;
@@ -212,7 +228,7 @@
     </style>
 </head>
 <body>
-
+<div class="menu-icon" onclick="toggleMenu()">☰</div>
     <!-- Navbar -->
     <div class="navbar">
         <ul class="nav-links">
@@ -245,6 +261,10 @@
         <img src="images/6.png" alt="Resim 6">
         <img id="image7" src="images/7.png" alt="Resim 7">
     </div>
-
+<script>
+    function toggleMenu() {
+        document.querySelector(".nav-links").classList.toggle("active");
+    }
+</script>
 </body>
 </html>
